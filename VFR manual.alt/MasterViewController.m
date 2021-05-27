@@ -8,6 +8,7 @@
 
 #import "MasterViewController.h"
 #import "DetailViewController.h"
+#import "View/InfoTableCellTableViewCell.h"
 
 @interface MasterViewController ()
 
@@ -70,17 +71,24 @@
 
 
 - (UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath {
-    UITableViewCell *cell = [tableView dequeueReusableCellWithIdentifier:@"Cell" forIndexPath:indexPath];
-
-    NSDate *object = self.objects[indexPath.row];
-    cell.textLabel.text = [object description];
+    InfoTableCellTableViewCell *cell = [tableView dequeueReusableCellWithIdentifier:@"Cell" forIndexPath:indexPath];
+    cell.airportName.text=@"Hranice Drahotuše Letiště Dlouhá RADIO";
+    cell.airportICAO.text=@"LKHN";
+    cell.airportFreq.text = @"123,510 MHz";
+    cell.airportAMSL.text = @"242 m";
+    cell.airportPatternAlt.text = @"540 m";
+    cell.airportRwyADir.text = @"05 - 23";
+    cell.airportRwyADim.text = @"735m x 150m";
+    cell.airportRwyBDir.text = @"";
+    cell.airportRwyBDim.text = @"";
+    
     return cell;
 }
 
 
 - (BOOL)tableView:(UITableView *)tableView canEditRowAtIndexPath:(NSIndexPath *)indexPath {
     // Return NO if you do not want the specified item to be editable.
-    return YES;
+    return NO;
 }
 
 

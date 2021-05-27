@@ -14,6 +14,8 @@
 		EB529857265C0D0A00F93FE5 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = EB529856265C0D0A00F93FE5 /* Assets.xcassets */; };
 		EB52985A265C0D0A00F93FE5 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = EB529858265C0D0A00F93FE5 /* LaunchScreen.storyboard */; };
 		EB52985D265C0D0A00F93FE5 /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = EB52985C265C0D0A00F93FE5 /* main.m */; };
+		EB529865265C0D3F00F93FE5 /* MapKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = EB529864265C0D3F00F93FE5 /* MapKit.framework */; };
+		EB52986C265C4B9D00F93FE5 /* InfoTableCellTableViewCell.m in Sources */ = {isa = PBXBuildFile; fileRef = EB52986B265C4B9D00F93FE5 /* InfoTableCellTableViewCell.m */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -29,6 +31,10 @@
 		EB529859265C0D0A00F93FE5 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		EB52985B265C0D0A00F93FE5 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		EB52985C265C0D0A00F93FE5 /* main.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = main.m; sourceTree = "<group>"; };
+		EB529864265C0D3F00F93FE5 /* MapKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = MapKit.framework; path = System/Library/Frameworks/MapKit.framework; sourceTree = SDKROOT; };
+		EB529867265C171B00F93FE5 /* VFR manual.alt.entitlements */ = {isa = PBXFileReference; lastKnownFileType = text.plist.entitlements; path = "VFR manual.alt.entitlements"; sourceTree = "<group>"; };
+		EB52986A265C4B9D00F93FE5 /* InfoTableCellTableViewCell.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = InfoTableCellTableViewCell.h; sourceTree = "<group>"; };
+		EB52986B265C4B9D00F93FE5 /* InfoTableCellTableViewCell.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = InfoTableCellTableViewCell.m; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -36,6 +42,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				EB529865265C0D3F00F93FE5 /* MapKit.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -47,6 +54,7 @@
 			children = (
 				EB529849265C0D0800F93FE5 /* VFR manual.alt */,
 				EB529848265C0D0800F93FE5 /* Products */,
+				EB529863265C0D3F00F93FE5 /* Frameworks */,
 			);
 			sourceTree = "<group>";
 		};
@@ -61,6 +69,9 @@
 		EB529849265C0D0800F93FE5 /* VFR manual.alt */ = {
 			isa = PBXGroup;
 			children = (
+				EB52986D265C4BBF00F93FE5 /* View */,
+				EB529867265C171B00F93FE5 /* VFR manual.alt.entitlements */,
+				EB529866265C146D00F93FE5 /* Model */,
 				EB52984A265C0D0800F93FE5 /* AppDelegate.h */,
 				EB52984B265C0D0800F93FE5 /* AppDelegate.m */,
 				EB52984D265C0D0800F93FE5 /* MasterViewController.h */,
@@ -74,6 +85,30 @@
 				EB52985C265C0D0A00F93FE5 /* main.m */,
 			);
 			path = "VFR manual.alt";
+			sourceTree = "<group>";
+		};
+		EB529863265C0D3F00F93FE5 /* Frameworks */ = {
+			isa = PBXGroup;
+			children = (
+				EB529864265C0D3F00F93FE5 /* MapKit.framework */,
+			);
+			name = Frameworks;
+			sourceTree = "<group>";
+		};
+		EB529866265C146D00F93FE5 /* Model */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			path = Model;
+			sourceTree = "<group>";
+		};
+		EB52986D265C4BBF00F93FE5 /* View */ = {
+			isa = PBXGroup;
+			children = (
+				EB52986A265C4B9D00F93FE5 /* InfoTableCellTableViewCell.h */,
+				EB52986B265C4B9D00F93FE5 /* InfoTableCellTableViewCell.m */,
+			);
+			path = View;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -107,6 +142,20 @@
 				TargetAttributes = {
 					EB529846265C0D0800F93FE5 = {
 						CreatedOnToolsVersion = 10.1;
+						SystemCapabilities = {
+							com.apple.BackgroundModes = {
+								enabled = 1;
+							};
+							com.apple.DataProtection = {
+								enabled = 0;
+							};
+							com.apple.Maps.iOS = {
+								enabled = 1;
+							};
+							com.apple.WAC = {
+								enabled = 0;
+							};
+						};
 					};
 				};
 			};
@@ -150,6 +199,7 @@
 				EB52984C265C0D0800F93FE5 /* AppDelegate.m in Sources */,
 				EB52985D265C0D0A00F93FE5 /* main.m in Sources */,
 				EB529852265C0D0800F93FE5 /* DetailViewController.m in Sources */,
+				EB52986C265C4B9D00F93FE5 /* InfoTableCellTableViewCell.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

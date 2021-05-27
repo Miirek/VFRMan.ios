@@ -21,16 +21,13 @@
     }
 }
 
-
 - (void)viewDidLoad {
     [super viewDidLoad];
     // Do any additional setup after loading the view, typically from a nib.
     [self configureView];
 }
 
-
 #pragma mark - Managing the detail item
-
 - (void)setDetailItem:(NSDate *)newDetailItem {
     if (_detailItem != newDetailItem) {
         _detailItem = newDetailItem;
