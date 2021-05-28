@@ -16,6 +16,7 @@
 		EB52985D265C0D0A00F93FE5 /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = EB52985C265C0D0A00F93FE5 /* main.m */; };
 		EB529865265C0D3F00F93FE5 /* MapKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = EB529864265C0D3F00F93FE5 /* MapKit.framework */; };
 		EB52986C265C4B9D00F93FE5 /* InfoTableCellTableViewCell.m in Sources */ = {isa = PBXBuildFile; fileRef = EB52986B265C4B9D00F93FE5 /* InfoTableCellTableViewCell.m */; };
+		EBA8CCD72660E5E3003ADC54 /* AppModel.m in Sources */ = {isa = PBXBuildFile; fileRef = EBA8CCD62660E5E3003ADC54 /* AppModel.m */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -35,6 +36,8 @@
 		EB529867265C171B00F93FE5 /* VFR manual.alt.entitlements */ = {isa = PBXFileReference; lastKnownFileType = text.plist.entitlements; path = "VFR manual.alt.entitlements"; sourceTree = "<group>"; };
 		EB52986A265C4B9D00F93FE5 /* InfoTableCellTableViewCell.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = InfoTableCellTableViewCell.h; sourceTree = "<group>"; };
 		EB52986B265C4B9D00F93FE5 /* InfoTableCellTableViewCell.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = InfoTableCellTableViewCell.m; sourceTree = "<group>"; };
+		EBA8CCD52660E5E3003ADC54 /* AppModel.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = AppModel.h; sourceTree = "<group>"; };
+		EBA8CCD62660E5E3003ADC54 /* AppModel.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = AppModel.m; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -98,6 +101,8 @@
 		EB529866265C146D00F93FE5 /* Model */ = {
 			isa = PBXGroup;
 			children = (
+				EBA8CCD52660E5E3003ADC54 /* AppModel.h */,
+				EBA8CCD62660E5E3003ADC54 /* AppModel.m */,
 			);
 			path = Model;
 			sourceTree = "<group>";
@@ -196,6 +201,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				EB52984F265C0D0800F93FE5 /* MasterViewController.m in Sources */,
+				EBA8CCD72660E5E3003ADC54 /* AppModel.m in Sources */,
 				EB52984C265C0D0800F93FE5 /* AppDelegate.m in Sources */,
 				EB52985D265C0D0A00F93FE5 /* main.m in Sources */,
 				EB529852265C0D0800F93FE5 /* DetailViewController.m in Sources */,
