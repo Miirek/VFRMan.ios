@@ -10,4 +10,19 @@
 
 @implementation AppModel
 
+-(instancetype) init {
+    if(self = [super init]){
+        
+    }
+    
+    return self;
+}
+
+-(instancetype) initWithJSON:(NSString *)jsonData{
+    if(self = [self init]){
+        
+    }
+    
+    return self;
+}
 @end
