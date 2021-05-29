@@ -20,7 +20,13 @@
 
 - (BOOL)application:(UIApplication *)application didFinishLaunchingWithOptions:(NSDictionary *)launchOptions {
     
+    NSString *filePath = [[NSBundle mainBundle] pathForResource:@"airports" ofType:@"json"];
+    NSString *testString = [NSString stringWithContentsOfFile:filePath encoding:NSUTF8StringEncoding error:nil];
     
+    NSLog(@"airports data: %@",testString);
+    
+    
+    _app = [[AppModel alloc] init];
     
     // Override point for customization after application launch.
     UISplitViewController *splitViewController = (UISplitViewController *)self.window.rootViewController;
