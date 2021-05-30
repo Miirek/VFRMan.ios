@@ -13,20 +13,24 @@ NS_ASSUME_NONNULL_BEGIN
 
 @interface MNAirfield : NSObject
 
-@property (nonatomic) NSString *name;
-@property (nonatomic) NSString *icaoCode;
-@property (nonatomic) NSString *callSign;
+@property (strong) NSString *name;
+@property (strong) NSString *icaoCode;
+@property (strong) NSString *callSign;
 
-@property (nonatomic) CLLocationCoordinate2D coordinates;
+@property (assign) CLLocationCoordinate2D coordinates;
 
-@property double frequency;
-@property long amsl;
-@property long patternAltitude;
-@property (nonatomic) NSArray *runways;
-@property (nonatomic) NSArray *procedures;
+@property (assign) double frequency;
+@property (assign) long amsl;
+@property (assign) long patternAltitude;
+
+@property (strong) NSArray *runways;
+@property (strong) NSArray *procedures;
 
 -(instancetype) init;
 -(instancetype) initWithData:(NSData *) data;
+
+-(NSDictionary*) dataForTableView;
+
 @end
 
 NS_ASSUME_NONNULL_END

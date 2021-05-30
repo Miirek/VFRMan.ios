@@ -25,12 +25,24 @@
     return self;
 }
 
--(instancetype) initWithData:(NSData *)data{
+-(instancetype) initWithData:(NSDictionary *) data{
     if(self = [self init]){
-        
+        _name = nil;
+        _icaoCode = nil;
+        _callSign = nil;
+
         
     }
     
     return self;
 }
+
+-(NSDictionary *) dataForTableView{
+    NSMutableDictionary * dataOut = [[NSMutableDictionary alloc] initWithCapacity:10];
+    
+    
+    return dataOut;
+}
+
+
 @end

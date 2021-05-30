@@ -11,11 +11,12 @@
 NS_ASSUME_NONNULL_BEGIN
 
 @interface AppModel : NSObject
-@property (nonatomic)NSArray *airfields;
-
 
 -(instancetype) init;
--(instancetype) initWithJSON: (NSString*) jsonData;
+-(instancetype) initWithData: (NSData*) inputData;
+
+-(void) loadData;
+
 
 @end
 
