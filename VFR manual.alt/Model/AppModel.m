@@ -11,7 +11,7 @@
 
 @implementation AppModel{
 
-    id data;
+    NSArray* data;
     NSMutableDictionary *airfields;
 }
 
@@ -24,30 +24,22 @@
     return self;
 }
 
--(instancetype) initWithData:(NSData *)inputData{
-    NSError *error;
+-(instancetype) initWithData:(NSArray *)inputData{
     
     if(self = [self init]){
-        data = [NSJSONSerialization JSONObjectWithData:inputData options:0 error:&error];
-        NSLog(@"Parsovaná data: %@", data);
+        data = inputData;
     }
-    
-    if (error) {
-        NSLog(@"Error parsing JSON: %@", error);
-  
-    }
-    
-    
-    NSLog(@"Parsovaná data #0 : %@", data[0]);
-    NSDictionary *airfield = data[0];
-    
-    NSLog(@"Airfield ICAO - %@ ", [airfield objectForKey:@"icao"]);
-    
     return self;
 }
 
 -(void)loadData{
-    
+    for (NSDictionary* airfieldData in data) {
+        NSLog(@"loading %@",[airfieldData objectForKey:@"icao"]);
+        [airfields setObject:
+         [[MNAirfield alloc] initWithData:airfieldData]
+                      forKey:[airfieldData objectForKey:@"icao"]];
+    }
+    // data = nil;
 }
 
 -(MNAirfield * )airfieldForICAOCode: (NSString*) icaoCode{
@@ -56,5 +48,8 @@
         return airfield;
     }
     return nil;
+}
+-(NSArray *) unsortedAirfields{
+    return [airfields allValues];
 }
 @end

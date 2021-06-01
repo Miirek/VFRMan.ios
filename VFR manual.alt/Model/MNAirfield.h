@@ -27,9 +27,10 @@ NS_ASSUME_NONNULL_BEGIN
 @property (strong) NSArray *procedures;
 
 -(instancetype) init;
--(instancetype) initWithData:(NSData *) data;
+-(instancetype) initWithData:(NSDictionary *) data;
 
 -(NSDictionary*) dataForTableView;
+
 
 @end
 
