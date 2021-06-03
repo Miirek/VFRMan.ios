@@ -30,8 +30,9 @@
         NSLog(@"Data %@", data);
         _name = [data objectForKey:@"name"];
         _icaoCode = [data objectForKey:@"icao"];
-        _callSign = [[[data objectForKey:@"radioService"] objectForKey:@"callSigns"] objectAtIndex:0];
-        _frequency = [(NSNumber *)[[[data objectForKey:@"radioService"] objectForKey:@"frequencies"] objectAtIndex:0] doubleValue] ;
+        _callSign = [[[[data objectForKey:@"radioService"] objectAtIndex:0] objectForKey:@"callSigns"] objectAtIndex:0];
+       
+        _frequency = [(NSNumber*)[[[[data objectForKey:@"radioService"] objectAtIndex:0] objectForKey:@"frequencies"] objectAtIndex:0] doubleValue] ;
         _patternAltitude = [(NSNumber *) [[[data objectForKey:@"circuit"] objectForKey:@"elevation"] objectForKey: @"value"] doubleValue];
     }
     
