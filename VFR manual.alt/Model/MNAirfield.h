@@ -9,6 +9,8 @@
 #import <Foundation/Foundation.h>
 #import <CoreLocation/CLLocation.h>
 
+@class MNRunway;
+
 NS_ASSUME_NONNULL_BEGIN
 
 @interface MNAirfield : NSObject
@@ -23,7 +25,7 @@ NS_ASSUME_NONNULL_BEGIN
 @property (assign) long amsl;
 @property (assign) long patternAltitude;
 
-@property (strong) NSArray *runways;
+@property (strong) NSArray<MNRunway*> *runways;
 @property (strong) NSArray *procedures;
 
 -(instancetype) init;

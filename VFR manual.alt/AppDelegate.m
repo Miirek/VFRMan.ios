@@ -19,12 +19,16 @@
 
 
 - (BOOL)application:(UIApplication *)application didFinishLaunchingWithOptions:(NSDictionary *)launchOptions {
+    
+    // data loading
     NSError *error;
     NSString *filePath = [[NSBundle mainBundle] pathForResource:@"airports" ofType:@"json"];
     NSString *jsonString = [NSString stringWithContentsOfFile:filePath encoding:NSUTF8StringEncoding error:nil];
     
     NSData *jsonData = [jsonString dataUsingEncoding:NSUTF8StringEncoding];
     id data = [NSJSONSerialization JSONObjectWithData:jsonData options:0 error:&error];
+
+    // app model
     if (error){
         NSLog(@"Error  %@", error);
     }else{
@@ -32,10 +36,12 @@
         [_app loadData];
     }
     // Override point for customization after application launch.
+    
     UISplitViewController *splitViewController = (UISplitViewController *)self.window.rootViewController;
     UINavigationController *navigationController = [splitViewController.viewControllers lastObject];
     navigationController.topViewController.navigationItem.leftBarButtonItem = splitViewController.displayModeButtonItem;
     splitViewController.delegate = self;
+    
     return YES;
 }
 

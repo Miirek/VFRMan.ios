@@ -14,6 +14,7 @@
 #import "Model/AppModel.h"
 
 #import "Model/MNAirfield.h"
+#import "Model/MNRunway.h"
 
 @interface MasterViewController ()
 
@@ -25,7 +26,7 @@
 - (void)viewDidLoad {
     [super viewDidLoad];
     self.app = [(AppDelegate*)[[UIApplication sharedApplication] delegate] app];
-    self.objects = (NSArray *) [_app unsortedAirfields];
+    self.objects = [[_app unsortedAirfields] copy];
     
     NSLog(@"tabulka %@",self.objects);
     
@@ -95,11 +96,13 @@
     cell.airportFreq.text = [[NSNumber numberWithDouble:af.frequency] stringValue];
     cell.airportAMSL.text = [[NSNumber numberWithDouble:af.amsl] stringValue];
     cell.airportPatternAlt.text = [[NSNumber numberWithDouble:af.patternAltitude] stringValue];
-    cell.airportRwyADir.text = @"05 - 23";
-    cell.airportRwyADim.text = @"735m x 150m";
-    cell.airportRwyBDir.text = @"";
-    cell.airportRwyBDim.text = @"";
     
+    cell.airportRwyADir.text = [[[[af runways] objectAtIndex:0] formattedRunway] objectForKey: @"heading"];
+    cell.airportRwyADim.text = [[[[af runways] objectAtIndex:0] formattedRunway] objectForKey: @"dimension"];
+    if([[af runways] count] > 1){
+        cell.airportRwyBDir.text = [[[[af runways] objectAtIndex:1] formattedRunway] objectForKey: @"heading"];;
+        cell.airportRwyBDim.text = [[[[af runways] objectAtIndex:1] formattedRunway] objectForKey: @"heading"];;
+    }
     return cell;
 }
 

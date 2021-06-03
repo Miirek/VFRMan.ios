@@ -19,6 +19,7 @@
 		EB7C1EDB2662CF96005CB9A5 /* airports.json in Resources */ = {isa = PBXBuildFile; fileRef = EB7C1EDA2662CF96005CB9A5 /* airports.json */; };
 		EB7C1EDD2662CFA8005CB9A5 /* srtm in Resources */ = {isa = PBXBuildFile; fileRef = EB7C1EDC2662CFA8005CB9A5 /* srtm */; };
 		EB7C20162662CFED005CB9A5 /* voc in Resources */ = {isa = PBXBuildFile; fileRef = EB7C20152662CFED005CB9A5 /* voc */; };
+		EB7C2DAA26697BC100FAC8A7 /* MNRunway.m in Sources */ = {isa = PBXBuildFile; fileRef = EB7C2DA926697BC100FAC8A7 /* MNRunway.m */; };
 		EBA8CCD72660E5E3003ADC54 /* AppModel.m in Sources */ = {isa = PBXBuildFile; fileRef = EBA8CCD62660E5E3003ADC54 /* AppModel.m */; };
 		EBA8CCDA2660F756003ADC54 /* MNAirfield.m in Sources */ = {isa = PBXBuildFile; fileRef = EBA8CCD92660F756003ADC54 /* MNAirfield.m */; };
 /* End PBXBuildFile section */
@@ -353,6 +354,8 @@
 		EB7C20132662CFDD005CB9A5 /* lkch_adc.jpg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; path = lkch_adc.jpg; sourceTree = "<group>"; };
 		EB7C20142662CFDD005CB9A5 /* lknymb_adc.jpg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; path = lknymb_adc.jpg; sourceTree = "<group>"; };
 		EB7C20152662CFED005CB9A5 /* voc */ = {isa = PBXFileReference; lastKnownFileType = folder; path = voc; sourceTree = "<group>"; };
+		EB7C2DA826697BC100FAC8A7 /* MNRunway.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = MNRunway.h; sourceTree = "<group>"; };
+		EB7C2DA926697BC100FAC8A7 /* MNRunway.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = MNRunway.m; sourceTree = "<group>"; };
 		EBA8CCD52660E5E3003ADC54 /* AppModel.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = AppModel.h; sourceTree = "<group>"; };
 		EBA8CCD62660E5E3003ADC54 /* AppModel.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = AppModel.m; sourceTree = "<group>"; };
 		EBA8CCD82660F756003ADC54 /* MNAirfield.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = MNAirfield.h; sourceTree = "<group>"; };
@@ -425,6 +428,8 @@
 				EBA8CCD62660E5E3003ADC54 /* AppModel.m */,
 				EBA8CCD82660F756003ADC54 /* MNAirfield.h */,
 				EBA8CCD92660F756003ADC54 /* MNAirfield.m */,
+				EB7C2DA826697BC100FAC8A7 /* MNRunway.h */,
+				EB7C2DA926697BC100FAC8A7 /* MNRunway.m */,
 			);
 			path = Model;
 			sourceTree = "<group>";
@@ -859,6 +864,7 @@
 				EB52985D265C0D0A00F93FE5 /* main.m in Sources */,
 				EB529852265C0D0800F93FE5 /* DetailViewController.m in Sources */,
 				EBA8CCDA2660F756003ADC54 /* MNAirfield.m in Sources */,
+				EB7C2DAA26697BC100FAC8A7 /* MNRunway.m in Sources */,
 				EB52986C265C4B9D00F93FE5 /* InfoTableCellTableViewCell.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
