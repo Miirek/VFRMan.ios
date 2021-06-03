@@ -10,6 +10,11 @@
 #import "DetailViewController.h"
 #import "View/InfoTableCellTableViewCell.h"
 
+#import "AppDelegate.h"
+#import "Model/AppModel.h"
+
+#import "Model/MNAirfield.h"
+
 @interface MasterViewController ()
 
 @property NSMutableArray *objects;
@@ -19,12 +24,20 @@
 
 - (void)viewDidLoad {
     [super viewDidLoad];
+    self.app = [(AppDelegate*)[[UIApplication sharedApplication] delegate] app];
+    self.objects = (NSArray *) [_app unsortedAirfields];
+    
+    NSLog(@"tabulka %@",self.objects);
+    
+    [[self tableView]reloadData];
+
     // Do any additional setup after loading the view, typically from a nib.
     self.navigationItem.leftBarButtonItem = self.editButtonItem;
 
     UIBarButtonItem *addButton = [[UIBarButtonItem alloc] initWithBarButtonSystemItem:UIBarButtonSystemItemAdd target:self action:@selector(insertNewObject:)];
     self.navigationItem.rightBarButtonItem = addButton;
     self.detailViewController = (DetailViewController *)[[self.splitViewController.viewControllers lastObject] topViewController];
+    
 }
 
 
@@ -72,11 +85,16 @@
 
 - (UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath {
     InfoTableCellTableViewCell *cell = [tableView dequeueReusableCellWithIdentifier:@"Cell" forIndexPath:indexPath];
-    cell.airportName.text=@"Hranice Drahotuše Letiště Dlouhá RADIO";
-    cell.airportICAO.text=@"LKHN";
-    cell.airportFreq.text = @"123,510 MHz";
-    cell.airportAMSL.text = @"242 m";
-    cell.airportPatternAlt.text = @"540 m";
+    
+    NSLog(@"IndexPath: %ld", (long)[indexPath row]);
+    
+    MNAirfield *af = [[self objects] objectAtIndex:indexPath.row];
+    
+    cell.airportName.text = [NSString stringWithFormat:@"%@ (%@)", af.callSign, af.name];
+    cell.airportICAO.text = af.icaoCode;
+    cell.airportFreq.text = [[NSNumber numberWithDouble:af.frequency] stringValue];
+    cell.airportAMSL.text = [[NSNumber numberWithDouble:af.amsl] stringValue];
+    cell.airportPatternAlt.text = [[NSNumber numberWithDouble:af.patternAltitude] stringValue];
     cell.airportRwyADir.text = @"05 - 23";
     cell.airportRwyADim.text = @"735m x 150m";
     cell.airportRwyBDir.text = @"";

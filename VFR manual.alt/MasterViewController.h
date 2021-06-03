@@ -9,10 +9,12 @@
 #import <UIKit/UIKit.h>
 
 @class DetailViewController;
+@class AppModel;
 
 @interface MasterViewController : UITableViewController
 
 @property (strong, nonatomic) DetailViewController *detailViewController;
+@property (weak) AppModel *app;
 
 
 @end

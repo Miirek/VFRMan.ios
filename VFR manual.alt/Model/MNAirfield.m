@@ -27,11 +27,13 @@
 
 -(instancetype) initWithData:(NSDictionary *) data{
     if(self = [self init]){
-        _name = nil;
-        _icaoCode = nil;
-        _callSign = nil;
-
-        
+        NSLog(@"Data %@", data);
+        _name = [data objectForKey:@"name"];
+        _icaoCode = [data objectForKey:@"icao"];
+        _callSign = [[[[data objectForKey:@"radioService"] objectAtIndex:0] objectForKey:@"callSigns"] objectAtIndex:0];
+       
+        _frequency = [(NSNumber*)[[[[data objectForKey:@"radioService"] objectAtIndex:0] objectForKey:@"frequencies"] objectAtIndex:0] doubleValue] ;
+        _patternAltitude = [(NSNumber *) [[[data objectForKey:@"circuit"] objectForKey:@"elevation"] objectForKey: @"value"] doubleValue];
     }
     
     return self;

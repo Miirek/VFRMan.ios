@@ -19,14 +19,18 @@
 
 
 - (BOOL)application:(UIApplication *)application didFinishLaunchingWithOptions:(NSDictionary *)launchOptions {
-    
+    NSError *error;
     NSString *filePath = [[NSBundle mainBundle] pathForResource:@"airports" ofType:@"json"];
     NSString *jsonString = [NSString stringWithContentsOfFile:filePath encoding:NSUTF8StringEncoding error:nil];
     
     NSData *jsonData = [jsonString dataUsingEncoding:NSUTF8StringEncoding];
-    
-    _app = [[AppModel alloc] initWithData:jsonData];
-    
+    id data = [NSJSONSerialization JSONObjectWithData:jsonData options:0 error:&error];
+    if (error){
+        NSLog(@"Error  %@", error);
+    }else{
+        _app = [[AppModel alloc] initWithData:data];
+        [_app loadData];
+    }
     // Override point for customization after application launch.
     UISplitViewController *splitViewController = (UISplitViewController *)self.window.rootViewController;
     UINavigationController *navigationController = [splitViewController.viewControllers lastObject];

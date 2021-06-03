@@ -16,7 +16,7 @@ NS_ASSUME_NONNULL_BEGIN
 -(instancetype) initWithData: (NSData*) inputData;
 
 -(void) loadData;
-
+-(NSArray *) unsortedAirfields;
 
 @end
 
