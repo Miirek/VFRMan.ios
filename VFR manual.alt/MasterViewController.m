@@ -103,6 +103,11 @@
     if([[af runways] count] > 1){
         cell.airportRwyBDir.text = [[[[af runways] objectAtIndex:1] formattedRunway] objectForKey: @"heading"];;
         cell.airportRwyBDim.text = [[[[af runways] objectAtIndex:1] formattedRunway] objectForKey: @"dimension"];;
+        cell.airportRwyBDim.hidden = NO;
+        cell.airportRwyBDir.hidden = NO;
+    }else{
+        cell.airportRwyBDim.hidden = YES;
+        cell.airportRwyBDir.hidden = YES;
     }
     return cell;
 }
