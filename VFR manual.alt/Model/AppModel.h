@@ -17,6 +17,7 @@ NS_ASSUME_NONNULL_BEGIN
 
 -(void) loadData;
 -(NSArray *) unsortedAirfields;
+-(NSArray *) airfieldsWithICAO:(NSString *) icaoCode;
 
 @end
 

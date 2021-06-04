@@ -33,7 +33,7 @@
 }
 
 -(NSDictionary*)formattedRunway{
-    return @{@"dimension":[NSString stringWithFormat:@"%.2d x %.2d",_headingA, _headingB],
+    return @{@"dimension":[NSString stringWithFormat:@"%ld x %ld",_width, _length],
              @"heading":[NSString stringWithFormat:@"%.2d - %.2d",_headingA, _headingB]};
 }
 @end

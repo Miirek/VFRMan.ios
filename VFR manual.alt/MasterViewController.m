@@ -26,9 +26,10 @@
 - (void)viewDidLoad {
     [super viewDidLoad];
     self.app = [(AppDelegate*)[[UIApplication sharedApplication] delegate] app];
-    self.objects = [[_app unsortedAirfields] copy];
-    
-    NSLog(@"tabulka %@",self.objects);
+//    self.objects = [[_app unsortedAirfields] copy];
+    self.objects = [[_app airfieldsWithICAO:@"LK"] copy];
+
+    //NSLog(@"tabulka %@",self.objects);
     
     [[self tableView]reloadData];
 
@@ -101,7 +102,7 @@
     cell.airportRwyADim.text = [[[[af runways] objectAtIndex:0] formattedRunway] objectForKey: @"dimension"];
     if([[af runways] count] > 1){
         cell.airportRwyBDir.text = [[[[af runways] objectAtIndex:1] formattedRunway] objectForKey: @"heading"];;
-        cell.airportRwyBDim.text = [[[[af runways] objectAtIndex:1] formattedRunway] objectForKey: @"heading"];;
+        cell.airportRwyBDim.text = [[[[af runways] objectAtIndex:1] formattedRunway] objectForKey: @"dimension"];;
     }
     return cell;
 }

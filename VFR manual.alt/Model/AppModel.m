@@ -49,7 +49,19 @@
     }
     return nil;
 }
+
 -(NSArray *) unsortedAirfields{
     return [airfields allValues];
 }
+
+-(NSArray *) airfieldsWithICAO:(NSString *) icaoCode{
+    NSMutableArray *output = [[NSMutableArray alloc] initWithCapacity:50];
+    for (MNAirfield* airfield in [airfields allValues]) {
+        if([[airfield icaoCode] rangeOfString:icaoCode options:NSRegularExpressionSearch|NSCaseInsensitiveSearch ].location == 0){
+            [output addObject:airfield];
+        }
+    }
+    return [output copy];
+}
+
 @end

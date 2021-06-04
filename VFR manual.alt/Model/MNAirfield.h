@@ -28,6 +28,8 @@ NS_ASSUME_NONNULL_BEGIN
 @property (strong) NSArray<MNRunway*> *runways;
 @property (strong) NSArray *procedures;
 
+@property (assign) bool hidden;
+
 -(instancetype) init;
 -(instancetype) initWithData:(NSDictionary *) data;
 

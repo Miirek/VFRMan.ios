@@ -22,6 +22,7 @@
         _patternAltitude = 0;
         _runways = nil;
         _procedures = nil;
+        _hidden = NO;
     }
     return self;
 }
