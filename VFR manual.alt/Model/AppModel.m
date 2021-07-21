@@ -36,7 +36,7 @@
     for (NSDictionary* airfieldData in data) {
         NSLog(@"loading %@",[airfieldData objectForKey:@"icao"]);
         [airfields setObject:
-         [[MNAirfield alloc] initWithData:airfieldData]
+         [[MNAirfield alloc] initWithData:airfieldData andDelegate: self]
                       forKey:[airfieldData objectForKey:@"icao"]];
     }
     // data = nil;
@@ -58,6 +58,7 @@
     NSMutableArray *output = [[NSMutableArray alloc] initWithCapacity:50];
     for (MNAirfield* airfield in [airfields allValues]) {
         if([[airfield icaoCode] rangeOfString:icaoCode options:NSRegularExpressionSearch|NSCaseInsensitiveSearch ].location == 0){
+            
             [output addObject:airfield];
         }
     }

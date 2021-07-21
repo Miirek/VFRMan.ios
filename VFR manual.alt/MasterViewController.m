@@ -95,8 +95,8 @@
     cell.airportName.text = [NSString stringWithFormat:@"%@ (%@)", af.callSign, af.name];
     cell.airportICAO.text = af.icaoCode;
     cell.airportFreq.text = [[NSNumber numberWithDouble:af.frequency] stringValue];
-    cell.airportAMSL.text = [[NSNumber numberWithDouble:af.amsl] stringValue];
-    cell.airportPatternAlt.text = [[NSNumber numberWithDouble:af.patternAltitude] stringValue];
+    cell.airportAMSL.text = [[NSNumber numberWithDouble:af.altitude] stringValue];
+    cell.airportPatternAlt.text =af.patternAltitude > 0 ? [[NSNumber numberWithDouble:af.patternAltitude] stringValue] : @"-";
     
     cell.airportRwyADir.text = [[[[af runways] objectAtIndex:0] formattedRunway] objectForKey: @"heading"];
     cell.airportRwyADim.text = [[[[af runways] objectAtIndex:0] formattedRunway] objectForKey: @"dimension"];
@@ -108,10 +108,18 @@
     }else{
         cell.airportRwyBDim.hidden = YES;
         cell.airportRwyBDir.hidden = YES;
+        
     }
     return cell;
 }
-
+- (CGFloat)tableView:(UITableView *)tableView heightForRowAtIndexPath:(NSIndexPath *)indexPath{
+    MNAirfield *af = [[self objects] objectAtIndex:indexPath.row];
+    if([[af runways] count] > 1){
+        return 170;
+    }
+    
+    return 170;
+}
 
 - (BOOL)tableView:(UITableView *)tableView canEditRowAtIndexPath:(NSIndexPath *)indexPath {
     // Return NO if you do not want the specified item to be editable.

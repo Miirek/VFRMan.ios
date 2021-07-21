@@ -10,10 +10,12 @@
 #import <CoreLocation/CLLocation.h>
 
 @class MNRunway;
+@class AppModel;
 
 NS_ASSUME_NONNULL_BEGIN
 
 @interface MNAirfield : NSObject
+@property (weak) AppModel *appDelegate;
 
 @property (strong) NSString *name;
 @property (strong) NSString *icaoCode;
@@ -22,8 +24,11 @@ NS_ASSUME_NONNULL_BEGIN
 @property (assign) CLLocationCoordinate2D coordinates;
 
 @property (assign) double frequency;
-@property (assign) long amsl;
-@property (assign) long patternAltitude;
+@property (assign) long altitude;
+@property (strong) NSString *altitudeOrigin;
+
+@property (nonatomic,assign) long patternAltitude;
+@property (strong) NSString *patternAltOrigin;
 
 @property (strong) NSArray<MNRunway*> *runways;
 @property (strong) NSArray *procedures;
@@ -31,10 +36,9 @@ NS_ASSUME_NONNULL_BEGIN
 @property (assign) bool hidden;
 
 -(instancetype) init;
--(instancetype) initWithData:(NSDictionary *) data;
+-(instancetype) initWithData:(NSDictionary *) data andDelegate:(AppModel *) delegate;
 
 -(NSDictionary*) dataForTableView;
-
 
 @end
 

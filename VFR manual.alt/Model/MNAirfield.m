@@ -18,28 +18,39 @@
         _callSign = nil;
         _coordinates = CLLocationCoordinate2DMake(0, 0);
         _frequency = 0;
-        _amsl = 0;
-        _patternAltitude = 0;
+        _altitude = 0;
+        self.patternAltitude = 0;
         _runways = nil;
         _procedures = nil;
         _hidden = NO;
+        _appDelegate = nil;
     }
     return self;
 }
 
--(instancetype) initWithData:(NSDictionary *) data{
+-(instancetype) initWithData:(NSDictionary *)data andDelegate:(nonnull AppModel *)delegate{
     
     if(self = [self init]){
-        NSLog(@"Data %@", data);
+ //       NSLog(@"Data %@", data);
+        _appDelegate = delegate;
         _name = [data objectForKey:@"name"];
         _icaoCode = [data objectForKey:@"icao"];
         _callSign = [[[[data objectForKey:@"radioService"] objectAtIndex:0] objectForKey:@"callSigns"] objectAtIndex:0];
        
         _frequency = [(NSNumber*)[[[[data objectForKey:@"radioService"] objectAtIndex:0] objectForKey:@"frequencies"] objectAtIndex:0] doubleValue] ;
-        _patternAltitude = [(NSNumber *) [[[data objectForKey:@"circuit"] objectForKey:@"elevation"] objectForKey: @"value"] longValue];
+        
+        self.patternAltitude = [(NSNumber *) [[[data objectForKey:@"circuit"] objectForKey:@"elevation"] objectForKey: @"value"] longValue];
+
+        if(self.patternAltitude > 0){
+         // _patternAltOrigin =
+        }
+
+        _altitude = [(NSNumber*)[[data objectForKey:@"elevation"] objectForKey:@"value"] longValue];
+        if(_altitude>0){
+            // _altitudeOrigin
+        }
         NSArray *rwys = [data objectForKey:@"runways"];
         NSMutableArray<MNRunway*> *runways = [[NSMutableArray alloc] initWithCapacity:[rwys count]];
-        
         if([rwys count] > 0){
             for (id rwyDef in rwys) {
                 NSString *rwySurface = [rwyDef objectForKey:@"surface"];
@@ -55,12 +66,10 @@
                 long rwyHdgB = [(NSNumber *)[[[rwyDef objectForKey:@"sections"] objectAtIndex:1] objectForKey:@"heading"] integerValue];
                 
                 [runways addObject:[[MNRunway alloc] initWithLength:length width:width headingA:(int)rwyHdgA headingB:(int)rwyHdgB runwaySurface:surfaceType]];
-                
             }
             _runways = [runways copy];
         }
     }
-    
     return self;
 }
 
@@ -71,5 +80,10 @@
     return dataOut;
 }
 
-
+-(long)getPatternAltitude{
+    return self.patternAltitude;
+}
+-(void)setPatternAltitude:(long)patternAltitude{
+    _patternAltitude = patternAltitude;
+}
 @end
