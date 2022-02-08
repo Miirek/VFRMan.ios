@@ -86,4 +86,7 @@
 -(void)setPatternAltitude:(long)patternAltitude{
     _patternAltitude = patternAltitude;
 }
+-(NSString*)description{
+    return [NSString stringWithFormat:@"Airport: Name=%@ CallSign=%@",_name, _callSign];
+}
 @end

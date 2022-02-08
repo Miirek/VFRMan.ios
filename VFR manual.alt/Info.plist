@@ -33,6 +33,7 @@
 	<true/>
 	<key>MKDirectionsApplicationSupportedModes</key>
 	<array>
+		<string>MKDirectionsModeOther</string>
 		<string>MKDirectionsModePlane</string>
 	</array>
 	<key>UIBackgroundModes</key>
