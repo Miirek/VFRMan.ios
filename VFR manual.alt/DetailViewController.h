@@ -7,12 +7,14 @@
 //
 
 #import <UIKit/UIKit.h>
+#import <MapKit/MapKit.h>
+
 #import "Model/MNAirfield.h"
 
 @interface DetailViewController : UIViewController
 
 @property (strong, nonatomic) MNAirfield *detailItem;
 @property (weak, nonatomic) IBOutlet UILabel *detailDescriptionLabel;
-
+@property (weak, nonatomic) IBOutlet MKMapView *map;
 @end
 

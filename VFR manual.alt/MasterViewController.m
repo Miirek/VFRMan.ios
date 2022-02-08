@@ -119,10 +119,10 @@
 - (CGFloat)tableView:(UITableView *)tableView heightForRowAtIndexPath:(NSIndexPath *)indexPath{
     MNAirfield *af = [[self objects] objectAtIndex:indexPath.row];
     if([[af runways] count] > 1){
-        return 170;
+        return 105;
     }
     
-    return 170;
+    return 105;
 }
 
 - (BOOL)tableView:(UITableView *)tableView canEditRowAtIndexPath:(NSIndexPath *)indexPath {

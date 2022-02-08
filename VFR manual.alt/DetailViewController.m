@@ -18,6 +18,8 @@
     // Update the user interface for the detail item.
     if (self.detailItem) {
         self.detailDescriptionLabel.text = [self.detailItem callSign];
+        [self.map setCenterCoordinate:[self.detailItem coordinates]];
+        NSLog(@"Coordinates: %f:%f",[self.detailItem coordinates].latitude,[self.detailItem coordinates].longitude);
     }
 }
 
