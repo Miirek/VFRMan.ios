@@ -39,6 +39,10 @@ NS_ASSUME_NONNULL_BEGIN
 -(instancetype) initWithData:(NSDictionary *) data andDelegate:(AppModel *) delegate;
 
 -(NSDictionary*) dataForTableView;
+-(void) setCoordinatesLat:(NSString*)latitude andLong:(NSString*)longitude;
+
+// comparison
+-(NSComparisonResult)compareCallSign:(MNAirfield *)airfield;
 
 @end
 

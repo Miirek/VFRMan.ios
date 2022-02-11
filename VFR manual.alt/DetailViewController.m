@@ -17,6 +17,9 @@
 - (void)configureView {
     // Update the user interface for the detail item.
     if (self.detailItem) {
+        MKMapCamera *camera = [[MKMapCamera alloc] init];
+        [camera setAltitude:1500];
+        [_map setCamera:camera];
         self.detailDescriptionLabel.text = [self.detailItem callSign];
         [self.map setCenterCoordinate:[self.detailItem coordinates]];
         NSLog(@"Coordinates: %f:%f",[self.detailItem coordinates].latitude,[self.detailItem coordinates].longitude);

@@ -31,7 +31,7 @@
 -(instancetype) initWithData:(NSDictionary *)data andDelegate:(nonnull AppModel *)delegate{
     
     if(self = [self init]){
- //       NSLog(@"Data %@", data);
+//        NSLog(@"Data %@", data);
         _appDelegate = delegate;
         _name = [data objectForKey:@"name"];
         _icaoCode = [data objectForKey:@"icao"];
@@ -40,7 +40,7 @@
         _frequency = [(NSNumber*)[[[[data objectForKey:@"radioService"] objectAtIndex:0] objectForKey:@"frequencies"] objectAtIndex:0] doubleValue] ;
         
         self.patternAltitude = [(NSNumber *) [[[data objectForKey:@"circuit"] objectForKey:@"elevation"] objectForKey: @"value"] longValue];
-
+        
         if(self.patternAltitude > 0){
          // _patternAltOrigin =
         }
@@ -49,6 +49,10 @@
         if(_altitude>0){
             // _altitudeOrigin
         }
+        
+        [self setCoordinatesLat:[[data objectForKey:@"coordinate"] objectForKey:@"latitude"]
+                        andLong:[[data objectForKey:@"coordinate"] objectForKey:@"longitude"]];
+        
         NSArray *rwys = [data objectForKey:@"runways"];
         NSMutableArray<MNRunway*> *runways = [[NSMutableArray alloc] initWithCapacity:[rwys count]];
         if([rwys count] > 0){
@@ -83,10 +87,21 @@
 -(long)getPatternAltitude{
     return self.patternAltitude;
 }
+
 -(void)setPatternAltitude:(long)patternAltitude{
     _patternAltitude = patternAltitude;
 }
+
 -(NSString*)description{
     return [NSString stringWithFormat:@"Airport: Name=%@ CallSign=%@",_name, _callSign];
 }
+
+-(void)setCoordinatesLat:(NSString*)latitude andLong:(NSString*)longitude{
+    _coordinates = CLLocationCoordinate2DMake([latitude doubleValue] , [longitude doubleValue]);
+}
+
+-(NSComparisonResult)compareCallSign:(MNAirfield *)airfield{
+    return [self.callSign compare: airfield.callSign];
+}
+
 @end

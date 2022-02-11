@@ -62,7 +62,9 @@
             [output addObject:airfield];
         }
     }
-    return [output copy];
+    NSSortDescriptor *sd;
+    sd = [[NSSortDescriptor alloc] initWithKey:@"icaoCode" ascending:YES];
+    return [[output sortedArrayUsingDescriptors:@[sd]] copy];
 }
 
 @end
